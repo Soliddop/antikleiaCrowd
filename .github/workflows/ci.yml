@@ -35,16 +35,11 @@ jobs:
       run: |
         echo TAG_REF=${GITHUB_SHA::8} >> $GITHUB_ENV
 
-    - name: Set env for development
-      #if: endsWith(github.ref, '/development')
-      run: |
-        echo DEPLOY_SERVER=hotwheels.ails.ece.ntua.gr >> $GITHUB_ENV
-        echo DEPLOY_TARGET=/data/crowdheritage/frontend/current/ >> $GITHUB_ENV
     - name: Set env for production
       if: endsWith(github.ref, '/master')
       run: |
-        echo DEPLOY_SERVER=lego.ails.ece.ntua.gr >> $GITHUB_ENV
-        echo DEPLOY_TARGET=/data/crowdheritage/frontend/current/ >> $GITHUB_ENV
+        echo DEPLOY_SERVER=hotwheels.ails.ece.ntua.gr >> $GITHUB_ENV
+        echo DEPLOY_TARGET=/data/crowdantikleia/frontend/current/ >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
 
