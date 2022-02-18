@@ -1,0 +1,16 @@
+{
+  "header"        : "Συνδεθείτε με τον e-mail σας",
+  "email"         : "Email",
+  "username"      : "Username",
+  "password"      : "Password",
+  "repeat"        : "Επαναλάβετε το Password",
+  "firstname"     : "Όνομα",
+  "lastname"      : "Επίθετο",
+  "select-gender" : "Επιλέξτε το φύλο σας...",
+  "male"          : "Άνδρας",
+  "female"        : "Γυναίκα",
+  "unspecified"   : "Μη-δυαδικό φύλο",
+  "accept"        : "Έχω διαβάσει και συμφωνώ με ",
+  "terms"         : "Όροι Χρήσης",
+  "button"        : "Εγγραφή"
+}
