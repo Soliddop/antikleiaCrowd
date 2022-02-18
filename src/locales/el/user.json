@@ -1,0 +1,13 @@
+{
+  "name"          : "Όνομα",
+  "gender"        : "Φύλο",
+  "contact"       : "Στοιχεία Επικοινωνίας",
+  "about"         : "Σχετικά",
+  "inserted"      : "INSERTED TAGS",
+  "upvotes"       : "UPVOTES",
+  "downvotes"     : "DOWNVOTES",
+  "items"         : "ITEMS",
+  "contribute"    : "Contribute more and unlock the next badge.",
+  "contributions" : "CONTRIBUTIONS",
+  "annotated"     : "ANNOTATED ITEMS"
+}
