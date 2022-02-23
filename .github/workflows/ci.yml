@@ -3,7 +3,7 @@ name: Node.js CI
 on:
   push:
     branches:
-     - master
+     - deploy/antikleia
 
 jobs:
   build:
@@ -15,13 +15,13 @@ jobs:
       PROJECT: CrowdHeritage
       SPACE: espace
       API_URL: /assets/developers-lite.html
-      WITHCROWD_BASE_URL: https://dev-api.withcrowd.eu
+      # WITHCROWD_BASE_URL: https://dev-api.withcrowd.eu
       BASE_URL: https://dev-api.crowdheritage.eu
       WITH_GOOGLE_KEY: "${{ secrets.WITH_GOOGLE_KEY }}"
       WITH_GOOGLE_SECRET: "${{ secrets.WITH_GOOGLE_SECRET }}"
       WITH_FACEBOOK_SECRET: "${{ secrets.WITH_FACEBOOK_SECRET }}"
-      WITHCROWD_FACEBOOK_SECRET: "${{ secrets.WITHCROWD_FACEBOOK_SECRET }}"
-      CROWDHERITAGE_FACEBOOK_SECRET: "${{ secrets.CROWDHERITAGE_FACEBOOK_SECRET }}"
+      # WITHCROWD_FACEBOOK_SECRET: "${{ secrets.WITHCROWD_FACEBOOK_SECRET }}"
+      # CROWDHERITAGE_FACEBOOK_SECRET: "${{ secrets.CROWDHERITAGE_FACEBOOK_SECRET }}"
 
     steps:
 
@@ -35,7 +35,7 @@ jobs:
         echo TAG_REF=${GITHUB_SHA::8} >> $GITHUB_ENV
 
     - name: Set env for production
-      if: endsWith(github.ref, '/master')
+      if: endsWith(github.ref, '/deploy/antikleia')
       run: |
         echo DEPLOY_SERVER=hotwheels.ails.ece.ntua.gr >> $GITHUB_ENV
         echo DEPLOY_TARGET=/data/crowdantikleia/frontend/current/ >> $GITHUB_ENV
@@ -69,8 +69,6 @@ jobs:
         WITH_GOOGLE_KEY=$WITH_GOOGLE_KEY
         WITH_GOOGLE_SECRET=$WITH_GOOGLE_SECRET
         WITH_FACEBOOK_SECRET=$WITH_FACEBOOK_SECRET
-        WITHCROWD_FACEBOOK_SECRET=$WITHCROWD_FACEBOOK_SECRET
-        CROWDHERITAGE_FACEBOOK_SECRET=$CROWDHERITAGE_FACEBOOK_SECRET
         EOF
 
 
@@ -89,11 +87,14 @@ jobs:
         NODE_ENV: production
         CI: false
 
+    - name: copy images to dist
+      run: cp -R img dist/
+
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.1
       env:
-          SSH_PRIVATE_KEY: ${{ secrets.WITH_CI_SSH_KEY }}
-          ARGS: "-v -c -rli --delete --exclude assets -b --backup-dir=/home/${DEPLOY_USER}/backups/with-frontend-${{ steps.extract_branch.outputs.branch }}_backup"
+          SSH_PRIVATE_KEY: ${{ secrets.ANTIKLEIA_CI_SSH_KEY }}
+          ARGS: "-v -c -rli --delete -b --backup-dir=/home/${DEPLOY_USER}/backups/with-frontend-${{ steps.extract_branch.outputs.branch }}_backup"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ env.DEPLOY_SERVER }}
           REMOTE_USER: ${{ env.DEPLOY_USER }}
