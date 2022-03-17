@@ -1,6 +1,6 @@
-# CrowdHeritage
+# CrowdAntikleia
 
-Crowdheritage is an open crowdsourcing platform with the aim to mobilise users to execute useful tasks for the enrichment and validation of selected cultural heritage metadata of Europeana. The enrichment is accomplished through the organization of crowdsourcing campaigns  where users add annotations. The platform offers the following functionalities:
+CrowdAntikleia is an open crowdsourcing platform with the aim to mobilise users to execute useful tasks for the enrichment and validation of selected cultural heritage metadata. The enrichment is accomplished through the organization of crowdsourcing campaigns  where users add annotations. The platform offers the following functionalities:
 
 * Design and implement custom crowdsourcing campaigns
 * Annotate cultural heritage content
