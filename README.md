@@ -148,6 +148,9 @@ npm test
 ```
 
 ## Acknowledgments
+<img src="/img/assets/img/espace/espa_logo.PNG" >
+The public expense for the Action is being co-financed by the Greek State and especially by the European Structural and Investment Funds (ΕΤΠΑ) for the Business Program "Competitiveness, Business and Innovation" for NSRF 2014-2020
+
 
 Parts of code responsible for Webpack configuration were inspired by or copied from @AngularClass' [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter).
 
